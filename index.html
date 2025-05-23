@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golnoosh | UI/UX Designer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --lavender: #B67CFF;
+            --skyblue: #00C8C8;
+            --yellow: #FFD96A;
+            --bg: #F9F9F9;
+            --text: #2B2D42;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, var(--lavender), var(--skyblue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--lavender);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white bg-opacity-90 backdrop-filter backdrop-blur-lg z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-2xl font-bold gradient-text">Golnoosh</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="nav-link text-gray-700 hover:text-purple-600 px-3 py-2 text-sm font-medium">Home</a>
+                        <a href="#about" class="nav-link text-gray-700 hover:text-purple-600 px-3 py-2 text-sm font-medium">About</a>
+                        <a href="#portfolio" class="nav-link text-gray-700 hover:text-purple-600 px-3 py-2 text-sm font-medium">Portfolio</a>
+                        <a href="#services" class="nav-link text-gray-700 hover:text-purple-600 px-3 py-2 text-sm font-medium">Services</a>
+                        <a href="#contact" class="nav-link text-gray-700 hover:text-purple-600 px-3 py-2 text-sm font-medium">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button type="button" class="mobile-menu-button inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-purple-600 focus:outline-none">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu hidden md:hidden fixed inset-0 z-40 bg-white pt-20">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-purple-600 hover:bg-gray-50">Home</a>
+            <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-purple-600 hover:bg-gray-50">About</a>
+            <a href="#portfolio" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-purple-600 hover:bg-gray-50">Portfolio</a>
+            <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-purple-600 hover:bg-gray-50">Services</a>
+            <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-purple-600 hover:bg-gray-50">Contact</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-12 md:mb-0">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Hello, I'm <span class="gradient-text">Golnoosh</span></h1>
+                <p class="text-lg md:text-xl text-gray-600 mb-8">A passionate UI/UX designer creating digital experiences that are beautiful, intuitive, and human-centered.</p>
+                <div class="flex space-x-4">
+                    <a href="#portfolio" class="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white font-semibold py-3 px-6 rounded-full shadow-md transition duration-300">View My Work</a>
+                    <a href="#contact" class="border-2 border-purple-500 text-purple-500 hover:bg-purple-50 font-semibold py-3 px-6 rounded-full transition duration-300">Let's Talk</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative w-64 h-64 md:w-80 md:h-80">
+                    <div class="absolute inset-0 bg-gradient-to-br from-purple-200 to-blue-200 rounded-full opacity-20 blur-xl"></div>
+                    <div class="relative floating">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" alt="Golnoosh" class="rounded-full object-cover w-full h-full border-4 border-white shadow-xl">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Work -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">Featured <span class="gradient-text">Projects</span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+                    <div class="h-48 bg-gradient-to-r from-purple-100 to-blue-100 flex items-center justify-center">
+                        <i class="fas fa-mobile-alt text-5xl text-purple-500"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Mobile Banking App</h3>
+                        <p class="text-gray-600 mb-4">Redesigned the user experience for a leading bank's mobile application, increasing user retention by 35%.</p>
+                        <a href="#" class="text-purple-500 font-medium hover:text-purple-700">View Case Study →</a>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+                    <div class="h-48 bg-gradient-to-r from-yellow-100 to-purple-100 flex items-center justify-center">
+                        <i class="fas fa-laptop text-5xl text-blue-500"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">E-commerce Website</h3>
+                        <p class="text-gray-600 mb-4">Created a seamless shopping experience that reduced cart abandonment by 28%.</p>
+                        <a href="#" class="text-blue-500 font-medium hover:text-blue-700">View Case Study →</a>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+                    <div class="h-48 bg-gradient-to-r from-blue-100 to-green-100 flex items-center justify-center">
+                        <i class="fas fa-chart-line text-5xl text-green-500"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Analytics Dashboard</h3>
+                        <p class="text-gray-600 mb-4">Designed an intuitive data visualization system that made complex metrics easily understandable.</p>
+                        <a href="#" class="text-green-500 font-medium hover:text-green-700">View Case Study →</a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="#portfolio" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-purple-500 hover:bg-purple-600 transition duration-300">
+                    See Full Portfolio
+                    <svg class="ml-3 -mr-1 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/3 mb-12 md:mb-0 flex justify-center">
+                <div class="relative">
+                    <div class="w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden shadow-xl">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a05d44d1d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Golnoosh working" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -bottom-5 -right-5 bg-yellow-400 rounded-full w-24 h-24 flex items-center justify-center shadow-lg">
+                        <span class="text-white text-4xl">👋</span>
+                    </div>
+                </div>
+            </div>
+            <div class="md:w-2/3 md:pl-16">
+                <h2 class="text-3xl font-bold mb-8">About <span class="gradient-text">Me</span></h2>
+                <p class="text-lg text-gray-600 mb-6">I'm a UI/UX designer with 5 years of experience creating digital products that people love to use. My journey began in graphic design, which gave me a strong foundation in visual communication and aesthetics.</p>
+                <p class="text-lg text-gray-600 mb-6">What excites me most about design is solving real problems for real people. I believe good design should be invisible—it should feel so natural that users don't even notice it.</p>
+                <p class="text-lg text-gray-600 mb-8">When I'm not designing, you can find me sketching in my notebook, exploring new coffee shops, or teaching design workshops to help others grow in this field.</p>
+                
+                <div class="bg-purple-50 rounded-xl p-6">
+                    <h3 class="text-xl font-bold mb-4 text-purple-800">My Design Philosophy</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                            <div class="text-purple-500 mb-2 text-2xl">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <h4 class="font-semibold mb-2">Empathy First</h4>
+                            <p class="text-sm text-gray-600">Design starts with understanding people's needs, frustrations, and aspirations.</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                            <div class="text-blue-500 mb-2 text-2xl">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <h4 class="font-semibold mb-2">Simple Solutions</h4>
+                            <p class="text-sm text-gray-600">Complex problems often have beautifully simple solutions when you look closely.</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                            <div class="text-yellow-500 mb-2 text-2xl">
+                                <i class="fas fa-pencil-ruler"></i>
+                            </div>
+                            <h4 class="font-semibold mb-2">Pixel Perfect</h4>
+                            <p class="text-sm text-gray-600">Details matter. Every pixel, every interaction should be intentional.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">My <span class="gradient-text">Skills</span> & Tools</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="bg-purple-100 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-paint-brush text-3xl text-purple-600"></i>
+                    </div>
+                    <h3 class="font-semibold">UI Design</h3>
+                </div>
+                <div class="text-center">
+                    <div class="bg-blue-100 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-search text-3xl text-blue-600"></i>
+                    </div>
+                    <h3 class="font-semibold">UX Research</h3>
+                </div>
+                <div class="text-center">
+                    <div class="bg-yellow-100 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-project-diagram text-3xl text-yellow-600"></i>
+                    </div>
+                    <h3 class="font-semibold">Wireframing</h3>
+                </div>
+                <div class="text-center">
+                    <div class="bg-green-100 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-users text-3xl text-green-600"></i>
+                    </div>
+                    <h3 class="font-semibold">User Testing</h3>
+                </div>
+            </div>
+            
+            <div class="mt-16">
+                <h3 class="text-xl font-semibold text-center mb-8">Tools I Use</h3>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <div class="bg-gray-50 px-6 py-3 rounded-full flex items-center">
+                        <i class="fab fa-figma text-2xl text-purple-600 mr-2"></i>
+                        <span>Figma</span>
+                    </div>
+                    <div class="bg-gray-50 px-6 py-3 rounded-full flex items-center">
+                        <i class="fab fa-adobe text-2xl text-red-600 mr-2"></i>
+                        <span>Adobe XD</span>
+                    </div>
+                    <div class="bg-gray-50 px-6 py-3 rounded-full flex items-center">
+                        <i class="fas fa-pencil-alt text-2xl text-yellow-600 mr-2"></i>
+                        <span>Sketch</span>
+                    </div>
+                    <div class="bg-gray-50 px-6 py-3 rounded-full flex items-center">
+                        <i class="fab fa-invision text-2xl text-pink-600 mr-2"></i>
+                        <span>InVision</span>
+                    </div>
+                    <div class="bg-gray-50 px-6 py-3 rounded-full flex items-center">
+                        <i class="fas fa-cube text-2xl text-blue-600 mr-2"></i>
+                        <span>ProtoPie</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-12">My <span class="gradient-text">Portfolio</span></h2>
+        
+        <!-- Portfolio Filter -->
+        <div class="flex justify-center mb-12">
+            <div class="inline-flex rounded-full bg-gray-100 p-1">
+                <button type="button" class="portfolio-filter px-4 py-2 rounded-full text-sm font-medium focus:outline-none active" data-filter="all">All Projects</button>
+                <button type="button" class="portfolio-filter px-4 py-2 rounded-full text-sm font-medium focus:outline-none" data-filter="app">App Design</button>
+                <button type="button" class="portfolio-filter px-4 py-2 rounded-full text-sm font-medium focus:outline-none" data-filter="web">Web Design</button>
+                <button type="button" class="portfolio-filter px-4 py-2 rounded-full text-sm font-medium focus:outline-none" data-filter="ux">UX Case Studies</button>
+            </div>
+        </div>
+        
+        <!-- Portfolio Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 portfolio-container">
+            <!-- Portfolio Item 1 -->
+            <div class="portfolio-item app" data-category="app">
+                <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover h-full flex flex-col">
+                    <div class="h-48 bg-gradient-to-r from-purple-100 to-pink-100 flex items-center justify-center relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Fitness App" class="absolute inset-0 w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300">
+                            <button class="bg-white text-purple-600 px-4 py-2 rounded-full font-medium">View Details</button>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold mb-2">Fitness Tracker App</h3>
+                        <p class="text-gray-600 mb-4">A mobile application that helps users track workouts, nutrition, and progress with beautiful data visualization.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">Mobile</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">UI Design</span>
+                            <span class="bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full">Prototyping</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Portfolio Item 2 -->
+            <div class="portfolio-item web" data-category="web">
+                <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover h-full flex flex-col">
+                    <div class="h-48 bg-gradient-to-r from-blue-100 to-cyan-100 flex items-center justify-center relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1556740738-b6a17126e9d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="E-commerce Website" class="absolute inset-0 w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300">
+                            <button class="bg-white text-blue-600 px-4 py-2 rounded-full font-medium">View Details</button>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold mb-2">E-commerce Platform</h3>
+                        <p class="text-gray-600 mb-4">Complete redesign of an online store focusing on improving conversion rates and simplifying the checkout process.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Web</span>
+                            <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">UX Research</span>
+                            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Conversion</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Portfolio Item 3 -->
+            <div class="portfolio-item ux" data-category="ux">
+                <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover h-full flex flex-col">
+                    <div class="h-48 bg-gradient-to-r from-yellow-100 to-orange-100 flex items-center justify-center relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="UX Research" class="absolute inset-0 w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300">
+                            <button class="bg-white text-yellow-600 px-4 py-2 rounded-full font-medium">View Details</button>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold mb-2">Healthcare Portal UX</h3>
+                        <p class="text-gray-600 mb-4">Comprehensive UX research and redesign of a patient portal to improve accessibility and reduce confusion.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full">UX Research</span>
+                            <span class="bg-red-100 text-red-800 text-xs px-3 py-1 rounded-full">User Testing</span>
+                            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Accessibility</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Portfolio Item 4 -->
+            <div class="portfolio-item app" data-category="app">
+                <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover h-full flex flex-col">
+                    <div class="h-48 bg-gradient-to-r from-green-100 to-teal-100 flex items-center justify-center relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Finance App" class="absolute inset-0 w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300">
+                            <button class="bg-white text-green-600 px-4 py-2 rounded-full font-medium">View Details</button>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold mb-2">Personal Finance App</h3>
+                        <p class="text-gray-600 mb-4">Mobile banking application designed to help young adults manage their finances with simple, intuitive controls.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Mobile</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">UI Design</span>
+                            <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">Prototyping</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Portfolio Item 5 -->
+            <div class="portfolio-item web" data-category="web">
+                <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover h-full flex flex-col">
+                    <div class="h-48 bg-gradient-to-r from-pink-100 to-red-100 flex items-center justify-center relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Travel Website" class="absolute inset-0 w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300">
+                            <button class="bg-white text-pink-600 px-4 py-2 rounded-full font-medium">View Details</button>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold mb-2">Travel Booking Platform</h3>
+                        <p class="text-gray-600 mb-4">Complete redesign of a travel website focusing on simplifying the booking process and improving visual hierarchy.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-pink-100 text-pink-800 text-xs px-3 py-1 rounded-full">Web</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">UI Design</span>
+                            <span class="bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full">User Flow</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Portfolio Item 6 -->
+            <div class="portfolio-item ux" data-category="ux">
+                <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover h-full flex flex-col">
+                    <div class="h-48 bg-gradient-to-r from-indigo-100 to-purple-100 flex items-center justify-center relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1556740738-b6a17126e9d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="UX Case Study" class="absolute inset-0 w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300">
+                            <button class="bg-white text-indigo-600 px-4 py-2 rounded-full font-medium">View Details</button>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold mb-2">SaaS Dashboard UX</h3>
+                        <p class="text-gray-600 mb-4">Improving the user experience of a complex analytics dashboard through iterative testing and redesign.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full">UX Research</span>
+                            <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">Data Viz</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">User Testing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-4">My <span class="gradient-text">Services</span></h2>
+            <p class="text-lg text-gray-600 text-center max-w-3xl mx-auto mb-12">I offer comprehensive design services to help bring your digital product vision to life.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-gray-50 rounded-xl p-8 hover:bg-white hover:shadow-lg transition duration-300">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-paint-brush text-2xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">UI Design</h3>
+                    <p class="text-gray-600 mb-6">Beautiful, intuitive interfaces that delight users and reflect your brand identity.</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-purple-500 mt-1 mr-2"></i>
+                            <span>Custom interface design</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-purple-500 mt-1 mr-2"></i>
+                            <span>Design systems & style guides</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-purple-500 mt-1 mr-2"></i>
+                            <span>Responsive design for all devices</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-gray-50 rounded-xl p-8 hover:bg-white hover:shadow-lg transition duration-300">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-search text-2xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">UX Research</h3>
+                    <p class="text-gray-600 mb-6">Data-driven insights to create products that truly meet user needs.</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-500 mt-1 mr-2"></i>
+                            <span>User interviews & surveys</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-500 mt-1 mr-2"></i>
+                            <span>Usability testing</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-500 mt-1 mr-2"></i>
+                            <span>Competitive analysis</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="bg-gray-50 rounded-xl p-8 hover:bg-white hover:shadow-lg transition duration-300">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-project-diagram text-2xl text-yellow-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Prototyping</h3>
+                    <p class="text-gray-600 mb-6">Interactive prototypes to test concepts before development begins.</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-yellow-500 mt-1 mr-2"></i>
+                            <span>Low & high fidelity wireframes</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-yellow-500 mt-1 mr-2"></i>
+                            <span>Clickable prototypes</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-yellow-500 mt-1 mr-2"></i>
+                            <span>User flow diagrams</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-16 bg-gradient-to-r from-purple-50 to-blue-50 rounded-2xl p-8 md:p-12">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-2/3 mb-8 md:mb-0">
+                        <h3 class="text-2xl font-bold mb-4">Ready to create something amazing together?</h3>
+                        <p class="text-gray-600 mb-6">Whether you have a fully formed idea or just starting to explore possibilities, I'd love to hear about your project.</p>
+                        <a href="#contact" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-purple-500 hover:bg-purple-600 transition duration-300">
+                            Get in Touch
+                            <svg class="ml-3 -mr-1 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="md:w-1/3 flex justify-center">
+                        <div class="w-40 h-40 rounded-full bg-gradient-to-r from-purple-200 to-blue-200 flex items-center justify-center shadow-lg">
+                            <i class="fas fa-paper-plane text-5xl text-white"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">What <span class="gradient-text">Clients</span> Say</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition duration-300">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Client" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Sarah Johnson</h4>
+                            <p class="text-gray-500 text-sm">Product Manager, TechStart</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"Golnoosh transformed our mobile app with her thoughtful design approach. She took the time to understand our users and delivered an interface that's both beautiful and incredibly intuitive. Our engagement metrics improved by 40% after implementing her designs."</p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition duration-300">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Client" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Michael Chen</h4>
+                            <p class="text-gray-500 text-sm">CEO, Finova</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"Working with Golnoosh was a game-changer for our fintech platform. Her UX research uncovered pain points we didn't even know existed, and her redesign reduced our customer support inquiries by 30%. She's not just a designer—she's a problem solver."</p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row">
+            <div class="md:w-1/2 mb-12 md:mb-0 md:pr-12">
+                <h2 class="text-3xl font-bold mb-6">Let's <span class="gradient-text">Connect</span></h2>
+                <p class="text-gray-600 mb-8">Have a project in mind or want to discuss potential collaboration? I'd love to hear from you!</p>
+                
+                <div class="space-y-6">
+                    <div class="flex items-start">
+                        <div class="bg-purple-100 w-12 h-12 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                            <i class="fas fa-envelope text-purple-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-1">Email Me</h4>
+                            <a href="mailto:hello@golnoosh.design" class="text-gray-600 hover:text-purple-600">hello@golnoosh.design</a>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                            <i class="fas fa-map-marker-alt text-blue-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-1">Location</h4>
+                            <p class="text-gray-600">Based in Tehran, working with clients worldwide</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="bg-yellow-100 w-12 h-12 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                            <i class="fas fa-share-alt text-yellow-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-1">Social Media</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-gray-600 hover:text-purple-600"><i class="fab fa-dribbble text-xl"></i></a>
+                                <a href="#" class="text-gray-600 hover:text-blue-600"><i class="fab fa-linkedin text-xl"></i></a>
+                                <a href="#" class="text-gray-600 hover:text-pink-600"><i class="fab fa-instagram text-xl"></i></a>
+                                <a href="#" class="text-gray-600 hover:text-blue-400"><i class="fab fa-twitter text-xl"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-12 bg-purple-50 rounded-xl p-6">
+                    <h4 class="font-bold mb-4 text-purple-800">Availability</h4>
+                    <p class="text-gray-600 mb-4">I'm currently accepting new projects for <span class="font-semibold">Q4 2023</span>. Let's schedule a call to discuss your needs.</p>
+                    <a href="#" class="inline-flex items-center text-purple-600 font-medium">
+                        Schedule a Call
+                        <svg class="ml-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="md:w-1/2">
+                <div class="bg-white rounded-xl shadow-md p-8">
+                    <h3 class="text-2xl font-bold mb-6">Send Me a Message</h3>
+                    <form>
+                        <div class="mb-6">
+                            <label for="name" class="block text-gray-700 font-medium mb-2">Your Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none transition duration-300" placeholder="Enter your name">
+                        </div>
+                        <div class="mb-6">
+                            <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none transition duration-300" placeholder="Enter your email">
+                        </div>
+                        <div class="mb-6">
+                            <label for="project" class="block text-gray-700 font-medium mb-2">Project Type</label>
+                            <select id="project" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none transition duration-300">
+                                <option value="">Select project type</option>
+                                <option value="ui">UI Design</option>
+                                <option value="ux">UX Research</option>
+                                <option value="redesign">Website Redesign</option>
+                                <option value="app">Mobile App Design</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 font-medium mb-2">Your Message</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none transition duration-300" placeholder="Tell me about your project..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-8 md:mb-0">
+                    <span class="text-2xl font-bold gradient-text">Golnoosh</span>
+                    <p class="mt-2 text-gray-400">Creating digital experiences that matter.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-dribbble text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">© 2023 Golnoosh. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition duration-300">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition duration-300">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-8 right-8 bg-purple-500 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-purple-600 transition duration-300 opacity-0 invisible">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Portfolio filter
+        const filterButtons = document.querySelectorAll('.portfolio-filter');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active', 'bg-purple-500', 'text-white'));
+                
+                // Add active class to clicked button
+                button.classList.add('active', 'bg-purple-500', 'text-white');
+                
+                const filterValue = button.getAttribute('data-filter');
+                
+                portfolioItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
